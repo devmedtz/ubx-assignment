@@ -13,7 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('cargo', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('cargo_no');
+            $table->string('cargo_type');
+            $table->bigInteger('cargo_size');
+            $table->double('weight', 0.00);
+            $table->string('remarks')->nullable();
+            $table->double('wharfage', 0.00);
+            $table->bigInteger('penalty', 0);
+            $table->double('storage', 0.00);
+            $table->double('electricity', 0.00);
+            $table->double('destuffing', 0);
+            $table->double('lifting', 0);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +37,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('cargo');
     }
 };

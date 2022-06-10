@@ -18,3 +18,7 @@ use App\Http\Controllers\CargoController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('cargo')->group(function () {
+    Route::get('/all', [CargoController::class, 'get_all_cargo']);
+});
