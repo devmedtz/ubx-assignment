@@ -19,6 +19,5 @@ Route::get('/', function () {
 });
 
 Route::prefix('cargo')->group(function () {
-    Route::get('/all-cargo', [CargoController::class, 'show']);
-    Route::post('/import', [CargoController::class, 'import']);
+    Route::post('/import', [CargoController::class, 'import'])->name('import');
 });
