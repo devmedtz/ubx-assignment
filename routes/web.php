@@ -17,3 +17,8 @@ use App\Http\Controllers\CargoController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('cargo')->group(function () {
+    Route::get('/all-cargo', [CargoController::class, 'show']);
+    Route::post('/import', [CargoController::class, 'import']);
+});
